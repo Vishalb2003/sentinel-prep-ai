@@ -30,15 +30,15 @@ export function HowItWorks() {
           />
           <ol className="grid gap-10 lg:grid-cols-4">
             {STEPS.map((s, i) => (
-              <Reveal key={s.n} delay={i * 0.15}>
-                <li className="relative lg:pr-8">
+              <li key={s.n} className="relative lg:pr-8">
+                <Reveal delay={i * 0.15}>
                   <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-background font-mono text-sm text-accent">
                     {s.n}
                   </span>
                   <h3 className="mt-6 text-lg tracking-wide uppercase">{s.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>
