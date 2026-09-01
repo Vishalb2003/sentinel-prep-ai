@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AmbientBackground } from "@/components/landing/AmbientBackground";
+import { Navbar } from "@/components/landing/Navbar";
+import { Hero } from "@/components/landing/Hero";
+import { Stats } from "@/components/landing/Stats";
+import { Features } from "@/components/landing/Features";
+import { AiIntelligence } from "@/components/landing/AiIntelligence";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { Fitness } from "@/components/landing/Fitness";
+import { DashboardPreview } from "@/components/landing/DashboardPreview";
+import { Motivation } from "@/components/landing/Motivation";
+import { Footer } from "@/components/landing/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Army Prep AI — AI-Driven Army Recruitment Preparation";
+const description =
+  "AI-driven army recruitment preparation platform with personalized learning, mock assessments, performance analytics and GPS fitness tracking for defence aspirants.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <AmbientBackground />
+      <Navbar />
+      <main>
+        <Hero />
+        <Stats />
+        <Features />
+        <AiIntelligence />
+        <HowItWorks />
+        <Fitness />
+        <DashboardPreview />
+        <Motivation />
+      </main>
+      <Footer />
+    </>
   );
 }
