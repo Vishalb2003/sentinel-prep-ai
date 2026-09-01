@@ -115,7 +115,7 @@ export function Hero() {
             style={{
               transform: `perspective(900px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
             }}
-            animate={reduced ? undefined : { opacity: 1 }}
+            animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ duration: 1.2 }}
           />
